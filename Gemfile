@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# add tesing
+gem 'rspec-rails', group: [:development, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
