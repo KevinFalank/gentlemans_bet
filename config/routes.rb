@@ -1,4 +1,10 @@
 GentlemansBet::Application.routes.draw do
+  resources :users, :only => [] do 
+    resources :challenges, :only => [:index, :create]
+  end
+
+  resources :challenges, :only => [:show, :update]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
