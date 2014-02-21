@@ -19,6 +19,8 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
 
     if @challenge.save
+      url = challenge_path(@challenge)
+      @challenge.update(bitly_url: shorten_url_with_bitly(url))
       redirect_to user_challenges_path(current_user)
     else
       render "index"

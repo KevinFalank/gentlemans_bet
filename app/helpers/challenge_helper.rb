@@ -16,12 +16,13 @@ module ChallengeHelper
     access_token = JSON.parse(response.body)["access_token"]
   end
 
-  def shorten_url_with_bitly(url, access_token)
+
+  def shorten_url_with_bitly(url)
     long_url = URI::encode(url)
-    # access_token = obtain_access_token
+    access_token = obtain_bitly_access_token
     bitly_url = URI.parse("https://api-ssl.bitly.com/v3/shorten?access_token=#{access_token}&longUrl=#{long_url}")
     response = Net::HTTP.get_response(bitly_url)
     response_body = JSON.parse(response.body)
     short_url = response_body['data']['url']
   end
-end
+
