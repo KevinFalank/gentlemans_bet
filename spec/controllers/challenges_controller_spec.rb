@@ -42,5 +42,13 @@ describe ChallengesController, :type => :controller do
     end
   end
 
-
+  describe "#update" do
+    it "the challengee's response is recorded in the challenge" do
+      user = User.create(username: "Charlie")
+      ApplicationController.any_instance.stub(:current_user).and_return(user)
+      challenge = Challenge.create(title: "test", status_id: 1)
+      put :update, id: challenge.id, challenge: {status_id: 2}
+      expect(Challenge.find(challenge.id).status_id).to eq(2)
+    end
+  end
 end
