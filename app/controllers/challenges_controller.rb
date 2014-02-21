@@ -14,7 +14,10 @@ class ChallengesController < ApplicationController
   def create
     params[:challenge][:challenger_id] = current_user.id
     params[:challenge][:status_id] = 1
+    challengee = User.create(username: params[:terms].scan(/@([a-zA-Z0-9])+/).first)
+    params[:challenge][:challengee_id] = challengee.id
     @challenge = Challenge.new(challenge_params)
+    
     if @challenge.save
       redirect_to user_challenges_path(current_user)
     else
