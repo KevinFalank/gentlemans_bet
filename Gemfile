@@ -38,6 +38,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Require gems for twitter oauth
+
+gem 'oauth'
+gem 'twitter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

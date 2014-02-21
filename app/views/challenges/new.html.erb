@@ -1,0 +1,26 @@
+<%= form_for @challenge do |f| %>
+  <p>
+    <%= f.label "Name your challenge:", :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label "Name your terms:", :terms %>
+    <%= f.text_field :terms %>
+  </p>
+  <p>
+    <%= f.label "Name your reward:", :reward %>
+    <%= f.text_field :reward %>
+  </p>
+  <p>
+    <%= f.label "Name your deadline:", :end_date %>
+    <%= f.text_field :end_date %>
+  </p>
+  <p>
+    <%= f.label "Who are you challenging (their Twitter handle)?:", :challengee_handle %>
+    <%= f.text_field :challengee_handle %>
+  </p>
+  <p>
+    <%= f.submit "Place your bet" %>
+  </p>
+
+<% end %>
