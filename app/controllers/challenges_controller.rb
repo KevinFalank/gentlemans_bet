@@ -14,7 +14,7 @@ class ChallengesController < ApplicationController
   def create
     params[:challenge][:challenger_id] = current_user.id
     params[:challenge][:status_id] = 1
-    challengee = User.create(username: params[:terms].scan(/@([a-zA-Z0-9])+/).first)
+    challengee = User.create(username: params[:challenge][:terms].scan(/@[a-zA-Z0-9]+/)[0])
     params[:challenge][:challengee_id] = challengee.id
     @challenge = Challenge.new(challenge_params)
     
@@ -23,6 +23,17 @@ class ChallengesController < ApplicationController
     else
       render "index"
     end
+  end
+
+  def show
+    @challenge = Challenge.find(params[:id])
+  end
+
+  def update
+    challenge = Challenge.find(params[:id])
+    challenge.status_id = params[:challenge][:status_id]
+    challenge.save
+    redirect_to user_challenges_path(current_user)
   end
 
   def test_root
