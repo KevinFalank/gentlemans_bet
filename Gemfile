@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+# Using Twitter to validate users
+gem 'oauth'
+gem 'twitter'
+
 # add tesing
 gem 'rspec-rails', group: [:development, :test]
 

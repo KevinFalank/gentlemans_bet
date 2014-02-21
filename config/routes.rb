@@ -1,4 +1,12 @@
 GentlemansBet::Application.routes.draw do
+  
+  root 'twitters#index'
+  get '/login' => 'twitters#create'
+  get '/auth' => 'twitters#auth'
+
+  #resources :users, only: [:index]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
