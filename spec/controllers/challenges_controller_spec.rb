@@ -31,7 +31,7 @@ describe ChallengesController, :type => :controller do
     it "a successful post creates a new challenge" do
       user = User.create(username: "Charlie")
       ApplicationController.any_instance.stub(:current_user).and_return(user)
-      expect{post :create, user_id: user.id, challenge: {'title' => 'Test Challenge'}}.to change(Challenge, :count).by(1)
+      expect{post :create, user_id: user.id, challenge: {'title' => 'Test Challenge', 'terms' => '@blahblah'}}.to change(Challenge, :count).by(1)
     end
   end
 end
