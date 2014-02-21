@@ -33,4 +33,8 @@ class TwittersController < ApplicationController
 
 	end
 
+	def sign_out
+		session.clear
+  	render 'index'
+	end
 end
