@@ -1,5 +1,5 @@
 GentlemansBet::Application.routes.draw do
-  root "chalenges#test_root"
+  root "challenges#test_root"
   resources :users, :only => [] do 
     resources :challenges, :only => [:index, :create]
   end

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rspec-rails', group: [:development, :test]
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '2.0.3'
   gem 'database_cleaner'
 end
 
