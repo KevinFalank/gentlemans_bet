@@ -1,11 +1,19 @@
 GentlemansBet::Application.routes.draw do
-  root "challenges#test_root"
-  resources :users, :only => [] do 
+
+  resources :users, :only => [] do
     resources :challenges, :only => [:index, :create]
   end
 
   resources :challenges, :only => [:show, :update]
-  
+
+
+  root 'twitters#index'
+  get '/login' => 'twitters#create'
+  get '/auth' => 'twitters#auth'
+
+  #resources :users, only: [:index]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -46,7 +54,7 @@ GentlemansBet::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

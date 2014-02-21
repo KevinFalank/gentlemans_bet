@@ -14,3 +14,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+
+# Ignore Environment Variable Config File
+/.env
+
+#Added Oauth for user signin via Twitter
+/config/twitter.yaml
+
