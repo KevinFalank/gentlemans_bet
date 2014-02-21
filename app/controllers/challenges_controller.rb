@@ -12,6 +12,8 @@ class ChallengesController < ApplicationController
   end
 
   def create
+    params[:challenge][:challenger_id] = current_user.id
+    params[:challenge][:status_id] = 1
     @challenge = Challenge.new(challenge_params)
     if @challenge.save
       redirect_to user_challenges_path(current_user)
