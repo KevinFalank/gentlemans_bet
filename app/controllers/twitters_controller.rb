@@ -19,8 +19,14 @@ class TwittersController < ApplicationController
 
 
 	  # at this point in the code is where you'll need to create your user account and store the access token
-  	user = User.create(username: @access_token.params[:screen_name], access_token: @access_token.token, access_secret: @access_token.secret)
-  	Session[:user_id] = user.id
+  	user = User.find_or_create_by(username: @access_token.params[:screen_name])
+  	user.access_token = @access_token.token
+  	user.access_secret = @access_token.secret
+		user.save
+  		
+  	session[:user_id] = user.id
+
+
 
   	# redirect to landing page
   	#redirect_to user_challenges_path
