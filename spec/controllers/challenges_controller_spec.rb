@@ -34,4 +34,13 @@ describe ChallengesController, :type => :controller do
       expect{post :create, user_id: user.id, challenge: {'title' => 'Test Challenge', 'terms' => '@blahblah'}}.to change(Challenge, :count).by(1)
     end
   end
+
+  describe "#show" do
+    it "the user is taken to a specific challenge's page" do
+      get :show, id: 1
+      expect(response.status).to eq(200)
+    end
+  end
+
+
 end
