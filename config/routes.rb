@@ -1,5 +1,12 @@
 GentlemansBet::Application.routes.draw do
-  
+
+  resources :users, :only => [] do
+    resources :challenges, :only => [:index, :create]
+  end
+
+  resources :challenges, :only => [:show, :update]
+
+
   root 'twitters#index'
   get '/login' => 'twitters#create'
   get '/auth' => 'twitters#auth'
@@ -47,7 +54,7 @@ GentlemansBet::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

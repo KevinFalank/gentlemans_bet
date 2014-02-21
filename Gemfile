@@ -7,6 +7,13 @@ gem 'twitter'
 # add tesing
 gem 'rspec-rails', group: [:development, :test]
 
+group :test do
+  gem 'capybara', '2.0.3'
+  gem 'database_cleaner'
+  gem 'rack_session_access'
+  gem "pry-rails", "~> 0.3.2"
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
