@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+protected
+
+  def current_user
+    user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  
   def oauth_consumer
 	  raise RuntimeError, "You must set TWITTER_KEY and TWITTER_SECRET in your server environment." unless ENV['TWITTER_KEY'] and ENV['TWITTER_SECRET']
 	  @consumer ||= OAuth::Consumer.new(
@@ -24,6 +30,10 @@ class ApplicationController < ActionController::Base
 	    )
 	  end
 	  session[:request_token]
+	end
+
+	def current_user
+
 	end
 
 end
