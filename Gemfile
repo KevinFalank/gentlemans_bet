@@ -6,6 +6,7 @@ gem 'rspec-rails', group: [:development, :test]
 group :test do
   gem 'capybara', '2.0.3'
   gem 'database_cleaner'
+  gem 'rack_session_access'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
