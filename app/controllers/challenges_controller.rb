@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
   def index
     @challenge = Challenge.new
-    if session[:user_id] == params[:user_id]
+    if session[:user_id] == params[:user_id].to_i
       @challenges_created = current_user.challenges_created
       @challenges_received = current_user.challenges_received
     elsif session[:user_id] != nil
@@ -17,7 +17,7 @@ class ChallengesController < ApplicationController
     challengee = User.create(username: params[:challenge][:terms].scan(/@[a-zA-Z0-9]+/)[0])
     params[:challenge][:challengee_id] = challengee.id
     @challenge = Challenge.new(challenge_params)
-    
+
     if @challenge.save
       redirect_to user_challenges_path(current_user)
     else
@@ -47,4 +47,4 @@ class ChallengesController < ApplicationController
 end
 
 
-    
+

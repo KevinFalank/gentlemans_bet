@@ -1,1 +1,13 @@
+<h3><%=@challenge.title%></h3>
+<h5>Reward: <%=@challenge.reward%></h5>
+<h5>End Date: <%=@challenge.end_date%></h5>
+<h5>Challenger: <%=@challenge.challenger.username%></h5>
+<h5>Challengee: <%=@challenge.challengee.username%></h5>
+<% if @challenge.winner %>
+  <h5>Winner: <%=@challenge.winner.username%></h5>
+<% end %>
+<h5>Terms</h5>
+<p><%=@challenge.terms%></p>
+<%= button_to 'Sir (or Lady), I do declare that I shall meet those terms.', {:controller => "challenges", :action => "update", :status_id => 2, :method=>:put}  %>
+<%= button_to 'Your wager is beneath me.', {:controller => "challenges", :action => "update", :status_id => 3, :method=>:put}  %>
 
