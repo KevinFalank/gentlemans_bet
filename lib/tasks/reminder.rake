@@ -7,3 +7,5 @@ end
 
 
 #rake reminder:send_bet_ending_reminders 
+
+#token, secret, message

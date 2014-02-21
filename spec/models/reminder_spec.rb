@@ -7,7 +7,7 @@ describe Reminder do
     challenge2 = Challenge.create(end_date: Date.new(2014,2,22))
     challenge3 = Challenge.create(end_date: Date.new(2014,2,27))
 
-    expect(Challenge.expire_tomorrow).to eq([challenge1, challenge2])
+    expect(Reminder.send_to).to eq([challenge1, challenge2])
   end
 
   pending "add some examples to (or delete) #{__FILE__}"
