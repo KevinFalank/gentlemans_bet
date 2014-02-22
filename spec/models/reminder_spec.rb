@@ -18,7 +18,7 @@ describe Reminder do
     challenge5 = Challenge.create(challenger_id: 3, 
                                   challengee_id: 4, 
                                   end_date: Date.new(2014,2,27))
-    expect(Reminder.send_to).to eq({4=>[1, 2]})
+    expect(Reminder.recipients).to eq({4=>[1, 2]})
   end
 
 end
