@@ -47,6 +47,7 @@ class ChallengesController < ApplicationController
       redirect_to user_challenges_path(current_user)
     else
       challenge.update_winner(current_user)
+      current_user.tweet(challenge.concede)
       redirect_to user_challenges_path(current_user)
     end
   end

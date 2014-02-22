@@ -22,6 +22,10 @@ class Challenge < ActiveRecord::Base
     "@"+self.challengee.username + ", You have been Challenged! " + self.title + ":" + self.bitly_url + " #gmbet"
   end
 
+  def concede
+    "@"+self.winner.username + ", Fine, I concede you are the greatest in the universe. " + self.title + ":" + self.bitly_url + " #gmbet"
+  end
+
   private
 
   def obtain_bitly_access_token
