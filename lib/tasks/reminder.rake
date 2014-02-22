@@ -1,3 +1,5 @@
+require_relative '../../app/models/reminder.rb'
+
 namespace :reminder do
 	desc "Send a reminder tweet a day before a bet ends"
 	task :send_bet_ending_reminders do
