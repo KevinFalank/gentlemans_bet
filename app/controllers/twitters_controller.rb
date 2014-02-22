@@ -1,4 +1,7 @@
 class TwittersController < ApplicationController
+  def index
+    redirect_to user_challenges_path(current_user) if session[:user_id]
+  end
 
 	def new
 		redirect_to request_token.authorize_url
