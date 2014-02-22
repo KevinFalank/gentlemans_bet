@@ -22,7 +22,7 @@ protected
 	  if not session[:request_token]
 	    # this 'host_and_port' logic allows our app to work both locally and on Heroku
 	    host_and_port = request.host
-	    host_and_port << ":3000" if request.host == "localhost"
+	    host_and_port << ":3000" if request.host == "127.0.0.1"
 	    # debugger
 	    # the `oauth_consumer` method is defined above
 	    session[:request_token] = oauth_consumer.get_request_token(
@@ -30,9 +30,5 @@ protected
 	    )
 	  end
 	  session[:request_token]
-	end
-
-	def current_user
-
 	end
 end

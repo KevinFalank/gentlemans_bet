@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :access_token
       t.string :username
-
+      t.string :access_secret
       t.timestamps
     end
   end

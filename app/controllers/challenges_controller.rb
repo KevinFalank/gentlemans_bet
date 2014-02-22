@@ -1,5 +1,6 @@
 class ChallengesController < ApplicationController
   def index
+    @user = User.new
     @challenge = Challenge.new
     if session[:user_id] == params[:user_id].to_i
       @challenges_created = current_user.challenges_created
@@ -14,11 +15,14 @@ class ChallengesController < ApplicationController
   def create
     params[:challenge][:challenger_id] = current_user.id
     params[:challenge][:status_id] = 1
-    challengee = User.create(username: params[:challenge][:terms].scan(/@[a-zA-Z0-9]+/)[0])
+    challengee = User.find_or_create_by(username: params[:user][:username])
     params[:challenge][:challengee_id] = challengee.id
     @challenge = Challenge.new(challenge_params)
 
     if @challenge.save
+      url = challenge_url(@challenge)
+      @challenge.obtain_bitly_url(url)
+      current_user.tweet(@challenge.issue)
       redirect_to user_challenges_path(current_user)
     else
       render "index"
@@ -26,17 +30,26 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @challenge = Challenge.find(params[:id])
+    if session[:user_id]
+      @current_user = current_user
+      @challenge = Challenge.find(params[:id])
+    else
+      session[:origin] = request.original_url
+      redirect_to "/login"
+    end
   end
 
   def update
     challenge = Challenge.find(params[:id])
-    challenge.status_id = params[:challenge][:status_id]
-    challenge.save
-    redirect_to user_challenges_path(current_user)
-  end
-
-  def test_root
+    if params[:status_id] 
+      challenge.status_id = params[:status_id]
+      challenge.save
+      redirect_to user_challenges_path(current_user)
+    else
+      challenge.update_winner(current_user)
+      current_user.tweet(challenge.concede)
+      redirect_to user_challenges_path(current_user)
+    end
   end
 
   private
