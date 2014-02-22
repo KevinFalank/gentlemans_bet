@@ -8,6 +8,6 @@
 <% end %>
 <h5>Terms</h5>
 <p><%=@challenge.terms%></p>
-<%= button_to 'Sir (or Lady), I do declare that I shall meet those terms.', {:controller => "challenges", :action => "update", :status_id => 2, :method=>:put}  %>
-<%= button_to 'Your wager is beneath me.', {:controller => "challenges", :action => "update", :status_id => 3, :method=>:put}  %>
+<%= button_to 'Sir (or Lady), I do declare that I shall meet those terms.', {:controller => "challenges", :action => "update", :status_id => 2}, :method=>:put  %>
+<%= button_to 'Your wager is beneath me.', {:controller => "challenges", :action => "update", :status_id => 3}, :method=>:put  %>
 

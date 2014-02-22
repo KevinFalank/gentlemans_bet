@@ -33,7 +33,7 @@ class ChallengesController < ApplicationController
 
   def update
     challenge = Challenge.find(params[:id])
-    challenge.status_id = params[:challenge][:status_id]
+    challenge.status_id = params[:status_id]
     challenge.save
     redirect_to user_challenges_path(current_user)
   end
