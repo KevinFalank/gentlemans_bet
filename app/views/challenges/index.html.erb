@@ -1,10 +1,22 @@
 <%= form_for [:user,@challenge] do |f| %>
 <ul>
-  <li><%= f.text_field :title %></li>
-  <li><%= f.text_area :terms, size: "30x5" %></li>
-  <li><%= f.text_field :reward %></li>
-  <li><%= f.datetime_field :end_date %></li>
-  <%= f.submit "Send Challenge"%>
+  <li>
+    <%= f.label :title, "Title"%>
+    <%= f.text_field :title %>
+  </li>
+  <li>
+    <%= f.label :terms, "Terms"%>
+    <%= f.text_area :terms, size: "30x5" %>
+  </li>
+  <li>
+    <%= f.label :reward, "Reward"%>
+    <%= f.text_field :reward %>
+  </li>
+  <li>
+    <%= f.label :end_date, "End Date"%>
+    <%= f.date_field :end_date %>
+  </li>
+  <li><%= f.submit "Send Challenge"%></li>
 </ul>
 <% end %>
 <h3>Challenges Created</h3>
