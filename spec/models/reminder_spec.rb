@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Challenge do
+describe Reminder do
 
 	it "should check for challenges that expire tomorrow" do
     challenge1 = Challenge.create(end_date: Date.new(2014,2,22))

@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, :at => '12:00 am' do
-  rake "reminder:send_bet_ending_reminder " > /dev/null 2>&1
+every 3.minutes do
+  rake "reminder:send_bet_ending_reminders"
 end
