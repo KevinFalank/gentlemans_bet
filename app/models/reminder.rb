@@ -5,10 +5,12 @@ class Reminder
   end
 
   def self.recipients
-  	Reminder.expiring_bets.reduce({}) do |hash, bet|
-      hash[bet.id] = [bet.challenger_id, bet.challengee_id]
-      hash
+    recipients = []
+  	Reminder.expiring_bets.each do |bet|
+      recipients << bet.challenger_id
+      recipients << bet.challengee_id
   	end
+    recipients
   end
 
   def self.remind #this is the method we will call in our rake task
@@ -18,6 +20,16 @@ class Reminder
     #by id...key in hash is the challenge id)
     #tweeted @ the users' twitter handle (search for user by id...
     #user id's are the value in the hash)
+    Reminder.recipients.each do |user|
+      tweet = Twitter::REST::Client.new do |config|
+        config.consumer_key = ENV['TWITTER_KEY']
+        config.consumer_secret = ENV['TWITTER_SECRET']
+        config.oauth_token = token
+        config.oauth_token_secret = secret
+      end
+
+      tweet.update(message)
+    end
   end
 
 end
