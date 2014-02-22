@@ -28,17 +28,25 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @challenge = Challenge.find(params[:id])
+    if session[:user_id]
+      @current_user = current_user
+      @challenge = Challenge.find(params[:id])
+    else
+      session[:origin] = request.original_url
+      redirect_to "/login"
+    end
   end
 
   def update
     challenge = Challenge.find(params[:id])
-    challenge.status_id = params[:status_id]
-    challenge.save
-    redirect_to user_challenges_path(current_user)
-  end
-
-  def test_root
+    if params[:status_id] 
+      challenge.status_id = params[:status_id]
+      challenge.save
+      redirect_to user_challenges_path(current_user)
+    else
+      challenge.update_winner(current_user)
+      redirect_to user_challenges_path(current_user)
+    end
   end
 
   private

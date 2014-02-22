@@ -12,11 +12,21 @@ class TwittersController < ApplicationController
   	user.access_secret = @access_token.secret
 		user.save
   	session[:user_id] = user.id
-    redirect_to user_challenges_path(user)
+    redirect_oauth(user)
 	end
 
 	def sign_out
 		session.clear
   	redirect_to :root
 	end
+
+  private
+
+  def redirect_oauth(user)
+    if session[:origin]
+      redirect_to session[:origin]
+    else
+      redirect_to user_challenges_path(user)
+    end
+  end
 end

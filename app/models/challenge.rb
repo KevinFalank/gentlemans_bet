@@ -13,6 +13,11 @@ class Challenge < ActiveRecord::Base
     self.save
   end
 
+  def update_winner(user)
+    self.challenger == user ? self.winner_id = self.challengee.id : self.winner_id = self.challenger.id
+    self.save
+  end
+
   private
 
   def obtain_bitly_access_token
