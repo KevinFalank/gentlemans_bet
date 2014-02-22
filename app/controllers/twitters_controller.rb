@@ -26,8 +26,6 @@ class TwittersController < ApplicationController
   		
   	session[:user_id] = user.id
 
-
-
   	# redirect to landing page
   	#redirect_to user_challenges_path
 
