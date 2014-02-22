@@ -5,4 +5,14 @@ class User < ActiveRecord::Base
 
 	validates :username, uniqueness: true
 	
+	def self.tweet (token, secret, message)
+		# Twitter::REST::Client
+	  Twitter.configure do |config|
+	    config.oauth_token = token
+	    config.oauth_token_secret = secret
+	  end
+
+	  Twitter.update(message)
+	end
+
 end
