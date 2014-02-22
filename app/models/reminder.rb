@@ -5,12 +5,14 @@ class Reminder
   end
 
   def self.send_to
-  	recipients = []
-  	Reminder.expiring_bets.each do |bet|
-  		recipients << bet.challenger_id
-      recipients << bet.challengee_id
+  	# recipients = []
+  	Reminder.expiring_bets.reduce({}) do |hash, bet|
+      hash[bet.id] = [bet.challenger_id, bet.challengee_id]
+      hash
+  		# recipients << bet.challenger_id
+    #   recipients << bet.challengee_id
   	end
-    recipients
+    # recipients
   end
 
 end
