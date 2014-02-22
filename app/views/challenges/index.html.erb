@@ -4,6 +4,12 @@
     <%= f.label :title, "Title"%>
     <%= f.text_field :title %>
   </li>
+  <%= fields_for @user do |u| %>
+      <li>
+        <%= u.label :username, "Challengee Username"%>
+        <%= u.text_field :username %>
+      </li>
+  <% end %>
   <li>
     <%= f.label :terms, "Terms"%>
     <%= f.text_area :terms, size: "30x5" %>

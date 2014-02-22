@@ -1,5 +1,6 @@
 class ChallengesController < ApplicationController
   def index
+    @user = User.new
     @challenge = Challenge.new
     if session[:user_id] == params[:user_id].to_i
       @challenges_created = current_user.challenges_created
@@ -14,9 +15,7 @@ class ChallengesController < ApplicationController
   def create
     params[:challenge][:challenger_id] = current_user.id
     params[:challenge][:status_id] = 1
-    username = params[:challenge][:terms].scan(/@[a-zA-Z0-9]+/)[0]
-    username = username[1..-1]
-    challengee = User.find_or_create_by(username: username)
+    challengee = User.find_or_create_by(username: params[:user][:username])
     params[:challenge][:challengee_id] = challengee.id
     @challenge = Challenge.new(challenge_params)
 
