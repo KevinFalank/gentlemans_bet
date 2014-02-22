@@ -25,4 +25,4 @@ module ChallengeHelper
     response_body = JSON.parse(response.body)
     short_url = response_body['data']['url']
   end
-
+end
