@@ -18,6 +18,10 @@ class Challenge < ActiveRecord::Base
     self.save
   end
 
+  def issue
+    self.challengee.username + "," + self.title + " " + self.bitly_url
+  end
+
   private
 
   def obtain_bitly_access_token

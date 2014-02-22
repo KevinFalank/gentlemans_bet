@@ -21,6 +21,7 @@ class ChallengesController < ApplicationController
     if @challenge.save
       url = challenge_url(@challenge)
       @challenge.obtain_bitly_url(url)
+      current_user.tweet(@challenge.issue)
       redirect_to user_challenges_path(current_user)
     else
       render "index"
