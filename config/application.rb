@@ -1,6 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'open-uri'
+require 'net/http'
+require 'openssl'
+require 'dotenv'
 
 # Load local .env, if available, otherwise load environment .env
 require 'dotenv' ; Dotenv.load ".env.local", ".env.#{Rails.env}"

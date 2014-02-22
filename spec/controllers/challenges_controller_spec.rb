@@ -37,7 +37,8 @@ describe ChallengesController, :type => :controller do
 
   describe "#show" do
     it "the user is taken to a specific challenge's page" do
-      get :show, id: 1
+      challenge = Challenge.create(title: "Test")
+      get :show, id: challenge.id
       expect(response.status).to eq(200)
     end
   end
