@@ -52,12 +52,9 @@ GEM
       dotenv (= 0.9.0)
     erubis (2.7.0)
     execjs (2.0.2)
-<<<<<<< HEAD
-    ffi (1.9.3)
-=======
     faraday (0.8.6)
       multipart-post (~> 1.1)
->>>>>>> origin
+    ffi (1.9.3)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -75,13 +72,10 @@ GEM
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.4)
-<<<<<<< HEAD
+    multipart-post (1.2.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-=======
-    multipart-post (1.2.0)
     oauth (0.4.7)
->>>>>>> origin
     pg (0.17.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
@@ -132,16 +126,13 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-<<<<<<< HEAD
     selenium-webdriver (2.40.0)
       childprocess (>= 0.5.0)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
-    slop (3.4.7)
-=======
     simple_oauth (0.2.0)
->>>>>>> origin
+    slop (3.4.7)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -178,11 +169,8 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 2.0.3)
   coffee-rails (~> 4.0.0)
-<<<<<<< HEAD
   database_cleaner
-=======
   dotenv-rails
->>>>>>> origin
   jbuilder (~> 1.2)
   jquery-rails
   oauth
