@@ -19,6 +19,8 @@
 # Ignore Environment Variable Config File
 /.env
 
-#Added Oauth for user signin via Twitter
-/config/twitter.yaml
+# Added Oauth for user signin via Twitter
+# /config/twitter.yaml
 
+# Do not upload .env.local
+/.env.local
