@@ -11,6 +11,7 @@ GentlemansBet::Application.routes.draw do
   get 'login' => 'twitters#new'
   get 'auth' => 'twitters#auth'
   delete 'sign_out' => 'twitters#sign_out'
+  get 'about' => 'navbars#about'
 
   #resources :users, only: [:index]
 
