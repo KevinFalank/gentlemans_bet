@@ -5,14 +5,15 @@ class Reminder
   end
 
   def self.send_to
-  	# recipients = []
   	Reminder.expiring_bets.reduce({}) do |hash, bet|
       hash[bet.id] = [bet.challenger_id, bet.challengee_id]
       hash
-  		# recipients << bet.challenger_id
-    #   recipients << bet.challengee_id
   	end
-    # recipients
   end
 
+  #include one last method that will send the actual tweet 
+  #containing the url from the challenge (search for challenge
+  #by id...key in hash is the challenge id)
+  #tweeted @ the users' twitter handle (search for user by id...
+  #user id's are the value in the hash)
 end
