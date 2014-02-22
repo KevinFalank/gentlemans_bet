@@ -19,7 +19,7 @@ class Challenge < ActiveRecord::Base
   end
 
   def issue
-    self.challengee.username + "," + self.title + " " + self.bitly_url
+    "@"+self.challengee.username + "," + self.title + " " + self.bitly_url
   end
 
   private
