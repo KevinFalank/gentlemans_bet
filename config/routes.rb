@@ -8,7 +8,7 @@ GentlemansBet::Application.routes.draw do
 
 
   root 'twitters#index'
-  get 'login' => 'twitters#create'
+  get 'login' => 'twitters#new'
   get 'auth' => 'twitters#auth'
   delete 'sign_out' => 'twitters#sign_out'
 
