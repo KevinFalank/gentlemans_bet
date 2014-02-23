@@ -3,6 +3,12 @@ class Challenge < ActiveRecord::Base
 	belongs_to :challengee, class_name: "User", foreign_key: "challengee_id"
 	belongs_to :winner, class_name: "User", foreign_key: "winner_id"
 	belongs_to :status
+  validates :title, :terms, :reward, :end_date, :challengee_id, :presence => true
+  validate :end_date_validity
+
+  def end_date_validity
+    errors.add(:end_date, "can't be in the past") if end_date < Date.today
+  end
 
   def obtain_bitly_url(url)
     long_url = URI::encode(url)
