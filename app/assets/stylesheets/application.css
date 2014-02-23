@@ -82,6 +82,8 @@ img {
 	margin-top: 10%;
 	padding: 2%;
 	border: 7px solid #664488;
+	text-align: center;
+	padding-right: 2%;
 }
 
 ul{
@@ -90,7 +92,7 @@ ul{
 
 #challenges{
 	background-image: url('stripe.png');
-	width: 55%;
+	width: 100%;
 	font-family: 'Julius Sans One', sans-serif;
 	font-size: 25px;
 	text-align: center;
@@ -103,6 +105,8 @@ ul{
 }
 input, textarea{
 	color: gray;
+	padding: 1%;
+	font-family: 'Julius Sans One', sans-serif;
 }
 table{
 	color: gray;
@@ -141,7 +145,6 @@ a:hover{
 	border: none;
 	border-radius: 50%;
 	width: 50%;
-	margin-left: 20%;
 	margin-top: 2%;
 }
 

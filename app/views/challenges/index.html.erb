@@ -1,24 +1,21 @@
 <div id="page">
 
   <%= form_for [:user,@challenge], :html => {id: "create"} do |f| %>
+  <h2>Create a Challenge</h2>
   <ul>
     <li>
-      <%= f.label :title, "Title"%>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, placeholder: "Title" %>
     </li>
     <%= fields_for @user do |u| %>
         <li>
-          <%= u.label :username, "Challengee Username"%>
-          <%= u.text_field :username %>
+          <%= u.text_field :username, placeholder: "Challengee Username" %>
         </li>
     <% end %>
     <li>
-      <%= f.label :terms, "Terms"%>
-      <%= f.text_area :terms, size: "30x5" %>
+      <%= f.text_area :terms, size: "30x5", placeholder: "Terms" %>
     </li>
     <li>
-      <%= f.label :reward, "Reward"%>
-      <%= f.text_field :reward %>
+      <%= f.text_field :reward, placeholder: "Reward" %>
     </li>
     <li>
       <%= f.label :end_date, "End Date"%>
