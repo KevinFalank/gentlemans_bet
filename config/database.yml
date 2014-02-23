@@ -50,7 +50,7 @@ test:
   database: gentlemans_bet_test
   pool: 5
   host: localhost
-
+  
   
   
 
@@ -60,4 +60,5 @@ production:
   database: gentlemans_bet_production
   pool: 5
   host: localhost
+  
   
