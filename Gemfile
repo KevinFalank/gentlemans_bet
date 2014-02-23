@@ -52,6 +52,9 @@ end
 #for scheduling a cron job
 gem 'whenever', :require => false
 
+#for normalize.css
+gem 'normalize-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

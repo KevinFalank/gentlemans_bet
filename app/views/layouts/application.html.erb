@@ -2,14 +2,20 @@
 <html>
 <head>
   <title>GentlemansBet</title>
+  <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <% if session[:user_id] %>
+
   <nav>
-    <ul>
+    <div id="logo">
+      <%= image_tag("gentleman.svg", width: "50%") %>
+    </div>
+    <ul id="navbar">
       <li>
         <%= link_to "Sign Out", sign_out_path, method: :delete %>
       </li>

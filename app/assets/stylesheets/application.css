@@ -11,3 +11,256 @@
  *= require_self
  *= require_tree .
  */
+/*-----------nav------------------*/
+html, body {
+    padding:0;
+    margin:0;
+}
+
+nav{
+	background-color: #330044;
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	top: 0px;
+}
+#navbar li{
+	float: right;
+	display: inline;
+	padding-right: 60px;
+	padding-top: 20px;
+	font-family: 'Julius Sans One', sans-serif;
+}
+#navbar li a:hover{
+	color: #664488;
+	-webkit-text-stroke: 1px white;
+}
+#logo{
+	background-color: black;
+	width: 20%;
+	border: solid 10px #330044;
+	border-radius: 50%;
+	padding: 2%;
+	position: absolute;
+	left: -50px;
+	top: -30px;
+}
+
+
+/*---------home page----------------*/
+
+body{
+	background-image: url('stripe.png');
+}
+
+#gentleman{
+	background-color: #330044;
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 5%;
+	margin-bottom: 2%;
+	border: 10px solid gray;
+	border-radius: 50%;
+}
+
+img {
+	padding-left: 50px;
+}
+
+#description{
+	background-color: black;
+	border: 3px solid gray;
+	border-radius: 5px;
+	font-family: 'Julius Sans One', sans-serif;
+	color: gray;
+	width: 60%;
+	padding: 3%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+#button_style{
+	background-color: #330044;
+	color: gray;
+	
+
+	padding: 3%;
+	border: none;
+	border-radius: 50%;
+	width: 20%;
+	margin-left: 40%;
+	margin-top: 2%;
+}
+
+#button_style:hover{
+	border: 3px solid gray;
+	color: white;
+	background-color: #664488;
+	text-shadow: 0px 5px 5px black;
+}
+
+
+/*-----------challenge index---------------*/
+
+
+#create{
+	font-family: 'Julius Sans One', sans-serif;
+	background-image: url('paper.png');
+	border-radius: 10px;
+	width: 30%;
+	margin: 0 auto;
+	padding: 2%;
+	border: 7px solid #664488;
+	text-align: center;
+	padding-right: 2%;
+}
+h2{
+	font-family: 'Alex Brush', cursive;
+	font-size: 40px;
+}
+ul{
+	padding: 0;
+	list-style: none;
+}
+
+#challenges{
+	background-image: url('stripe.png');
+	width: 100%;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 25px;
+	text-align: center;
+	color: white;
+	text-shadow: 0px 5px 5px #664488;
+	margin: 0 auto;
+	margin-top: 3%;
+	margin-bottom: 10%;
+	width: 100%;
+}
+input, textarea{
+	color: gray;
+	padding: 1%;
+	font-family: 'Julius Sans One', sans-serif;
+	padding-right: 2%;
+}
+table{
+	color: gray;
+	font-size: 14px;
+	border-radius: 7px;
+	border: 1px solid gray;
+	background-color: #330044;
+	margin: 0 auto;
+	padding: 4%;
+}
+td{
+	margin: 3%;
+	background-color: gray;
+	color: black;
+	font-size: 12px;
+	text-shadow: none;
+	padding: 1%;
+	border-radius: 10px;
+}
+
+a{
+	color: white;
+	text-shadow: 0px 5px 5px #664488;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+	color: black;
+}
+
+#button_style2{
+	background-color: #330044;
+	color: gray;
+	padding: 3%;
+	border: none;
+	border-radius: 50%;
+	width: 50%;
+	margin-top: 2%;
+}
+
+#button_style2:hover{
+	border: 3px solid gray;
+	color: white;
+	background-color: #664488;
+	text-shadow: 0px 5px 5px black;
+}
+/*-------challenge show-----------*/
+#page{
+	margin-top: 10%;
+}
+
+#display{
+	width: 40%;
+	background-color: #330044;
+	color: white;
+	margin: 0 auto;
+	margin-bottom: 2%;
+	text-align: center;
+	font-family: 'Julius Sans One', sans-serif;
+	padding: 3%;
+	border: solid 1px gray;
+	border-radius: 20px;
+}
+h3{
+	font-family: 'Alex Brush', cursive;
+	font-size: 40px;
+}
+h4{
+	font-family: 'Alex Brush', cursive;
+	color: #664488;
+	font-size: 30px;
+}
+h5{
+	font-size: 15px;
+	line-height: 5%;
+}
+#options{
+	width: 20%;
+	margin: 0 auto;
+	margin-bottom: 10%;
+	text-align: center;
+}
+button{
+	background-color: #330044;
+	color: gray;
+	
+
+	padding: 3%;
+	border: none;
+	border-radius: 50%;
+	width: 20%;
+	margin-left: 40%;
+	margin-top: 2%;
+}
+
+button:hover{
+	border: 3px solid gray;
+	color: white;
+	background-color: #664488;
+	text-shadow: 0px 5px 5px black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,11 @@
-<div>
-	<%= image_tag("tophat.jpeg", width: "25%") %>
+<div class="landing_page">
+	<div id="gentleman">
+		<%= image_tag("gentleman.svg", width: "70%") %>
+	</div>
+	<div id="description">
+		This is the description of our site... Blah, blah, blah
+	</div id="button">
+	<%= form_tag("/login", method: "get") do%>
+	<%= submit_tag "Sign in with Twitter", :id => "button_style" %>
+	<% end %>
 </div>
-<div>
-	This is the description of our site... Blah, blah, blah
-</div>
-<%= form_tag("/login", method: "get") do%>
-<%= submit_tag("Sign in with Twitter") %>
-<% end %>
