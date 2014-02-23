@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: gentlemans_bet
+  database: gentlemans_bet_development
   pool: 5
   host: localhost
 
@@ -47,7 +47,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: gentlemans_bet
+  database: gentlemans_bet_test
   pool: 5
   host: localhost
   
@@ -57,7 +57,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: gentlemans_bet
+  database: gentlemans_bet_production
   pool: 5
   host: localhost
   
