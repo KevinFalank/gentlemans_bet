@@ -45,7 +45,7 @@ img {
 }
 
 
-#sign_in{
+#button_style{
 	background-color: #330044;
 	color: gray;
 	
@@ -58,7 +58,7 @@ img {
 	margin-top: 2%;
 }
 
-#sign_in:hover{
+#button_style:hover{
 	border: 3px solid gray;
 	color: white;
 	background-color: #664488;
@@ -88,8 +88,9 @@ ul{
 
 #challenges{
 	background-color: gray;
-	width: 70%;
+	width: 55%;
 	font-family: 'Julius Sans One', sans-serif;
+	font-size: 25px;
 	text-align: center;
 	color: white;
 	text-shadow: 0px 5px 5px #664488;
@@ -101,7 +102,8 @@ ul{
 }
 
 table{
-	color: gray;
+	color: white;
+	font-size: 14px;
 	border-radius: 7px;
 	background-color: #330044;
 	margin: 0 auto;
@@ -114,9 +116,30 @@ td{
 	margin: 3%;
 	background-color: gray;
 	color: black;
+	font-size: 12px;
 	text-shadow: none;
 	padding: 1%;
 	border-radius: 7px;
+}
+
+#button_style2{
+	background-color: #330044;
+	color: gray;
+	
+
+	padding: 3%;
+	border: none;
+	border-radius: 50%;
+	width: 50%;
+	margin-left: 20%;
+	margin-top: 2%;
+}
+
+#button_style2:hover{
+	border: 3px solid gray;
+	color: white;
+	background-color: #664488;
+	text-shadow: 0px 5px 5px black;
 }
 
 
