@@ -11,6 +11,24 @@
  *= require_self
  *= require_tree .
  */
+/*-----------nav------------------*/
+html, body {
+    padding:0;
+    margin:0;
+}
+
+nav{
+	background-color: #330044;
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	top: 0px;
+}
+#navbar li{
+	float: right;
+	display: inline;
+}
+
 
 /*---------home page----------------*/
 
@@ -75,7 +93,6 @@ img {
 	border-radius: 10px;
 	width: 30%;
 	margin: 0 auto;
-	margin-top: 10%;
 	padding: 2%;
 	border: 7px solid #664488;
 	text-align: center;
@@ -86,6 +103,7 @@ h2{
 	font-size: 40px;
 }
 ul{
+	padding: 0;
 	list-style: none;
 }
 
@@ -100,12 +118,12 @@ ul{
 	margin: 0 auto;
 	margin-top: 3%;
 	margin-bottom: 10%;
-	padding: 2%;
 }
 input, textarea{
 	color: gray;
 	padding: 1%;
 	font-family: 'Julius Sans One', sans-serif;
+	padding-right: 2%;
 }
 table{
 	color: gray;
@@ -154,13 +172,15 @@ a:hover{
 	text-shadow: 0px 5px 5px black;
 }
 /*-------challenge show-----------*/
+#page{
+	margin-top: 10%;
+}
 
 #display{
 	width: 40%;
 	background-color: #330044;
 	color: white;
 	margin: 0 auto;
-	margin-top: 10%;
 	margin-bottom: 10%;
 	text-align: center;
 	font-family: 'Julius Sans One', sans-serif;
