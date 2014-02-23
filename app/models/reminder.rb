@@ -13,13 +13,7 @@ class Reminder
     recipients
   end
 
-  def self.remind #this is the method we will call in our rake task
-    puts "You have been reminded" #temporary test
-    #include one last method that will send the actual tweet 
-    #containing the url from the challenge (search for challenge
-    #by id...key in hash is the challenge id)
-    #tweeted @ the users' twitter handle (search for user by id...
-    #user id's are the value in the hash)
+  def self.remind 
     Reminder.recipients.each do |user_id|
       user = User.find_by(user_id)
       tweet_at = "@#{user.username}"
@@ -31,7 +25,9 @@ class Reminder
         config.oauth_token_secret = ENV['OAUTH_SECRET']
       end
 
-      tweet.update("#{tweet_at}, you have an unresolved challenge that expires tomorrow! Concede or both parties shall be shamed!")
+      tweet.update("#{tweet_at}, you have an unresolved 
+        challenge that expires tomorrow! Concede or both 
+        parties shall be shamed!")
     end
   end
 
