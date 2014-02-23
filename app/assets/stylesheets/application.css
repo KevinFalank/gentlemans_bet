@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-
+/*---------home page----------------*/
 
 body{
 	background-image: url('stripe.png');
@@ -48,7 +48,8 @@ img {
 #sign_in{
 	background-color: #330044;
 	color: gray;
-	font-family: 'Julius Sans One', sans-serif;
+	
+
 	padding: 3%;
 	border: none;
 	border-radius: 50%;
@@ -63,3 +64,79 @@ img {
 	background-color: #664488;
 	text-shadow: 0px 5px 5px black;
 }
+
+
+/*-----------challenge index---------------*/
+
+/*#page{
+	background-color: white;
+	background-image: url('stripe.png');
+}*/
+
+#create{
+	font-family: 'Julius Sans One', sans-serif;
+	background-image: url('paper.png');
+	border-radius: 3px;
+	width: 30%;
+	margin: 0 auto;
+	padding: 2%;
+}
+
+ul{
+	list-style: none;
+}
+
+#challenges{
+	background-color: gray;
+	width: 70%;
+	font-family: 'Julius Sans One', sans-serif;
+	text-align: center;
+	color: white;
+	text-shadow: 0px 5px 5px #664488;
+	margin: 0 auto;
+	margin-top: 3%;
+	padding: 1%;
+	border: 3px solid white;
+	border-radius: 7px;
+}
+
+table{
+	color: gray;
+	border-radius: 7px;
+	background-color: #330044;
+	margin: 0 auto;
+	padding: 2%;
+}
+tr{
+	margin: 3%;
+}
+td{
+	margin: 3%;
+	background-color: gray;
+	color: black;
+	text-shadow: none;
+	padding: 1%;
+	border-radius: 7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
