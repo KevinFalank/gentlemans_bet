@@ -33,6 +33,15 @@ feature 'User creating and viewing a challenge' do
      }.to change(Challenge, :count).by(1)
     end
 
+    it "displays errors when the form is not filled-out completely" do
+      user.stub(:tweet).and_return("whatever")
+      visit user_challenges_url(user)
+      fill_in 'user_username',   with: "Whomever"
+      fill_in 'challenge_reward', with: "Blah Blah"
+      fill_in 'challenge_end_date', with: "2099-02-21"
+      click_button "Send Challenge"
+      expect(page).to have_content("can't be blank")
+    end
 
     it "lists the user's challenges on the user#index" do
       challenge

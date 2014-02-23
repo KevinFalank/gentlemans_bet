@@ -7,7 +7,9 @@ class Challenge < ActiveRecord::Base
   validate :end_date_validity
 
   def end_date_validity
-    errors.add(:end_date, "can't be in the past") if end_date < Date.today
+    if end_date 
+      errors.add(:end_date, "can't be in the past") if end_date < Date.today
+    end
   end
 
   def obtain_bitly_url(url)

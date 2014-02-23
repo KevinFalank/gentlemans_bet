@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_many :challenges_won, class_name: "Challenge", foreign_key: "winner_id"
 
 	validates :username, uniqueness: true
+	validates :username, presence: true
 	
 	def tweet (message)
 
