@@ -23,8 +23,14 @@
     </li>
     <li><%= f.submit "Send Challenge", id: "button_style2" %></li>
   </ul>
+  <% if @errors %>
+    <ul class="errors">
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
-
+  <% end %>
   <div id="challenges">
     <h3>Challenges Created</h3>
     <table>

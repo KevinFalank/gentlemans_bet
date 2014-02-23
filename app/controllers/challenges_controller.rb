@@ -1,5 +1,6 @@
 class ChallengesController < ApplicationController
   def index
+    @errors = nil
     @user = User.new
     @challenge = Challenge.new
     if session[:user_id] == params[:user_id].to_i
@@ -13,18 +14,16 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    params[:challenge][:challenger_id] = current_user.id
-    params[:challenge][:status_id] = 1
-    challengee = User.find_or_create_by(username: params[:user][:username])
-    params[:challenge][:challengee_id] = challengee.id
     @challenge = Challenge.new(challenge_params)
-
     if @challenge.save
-      url = challenge_url(@challenge)
-      @challenge.obtain_bitly_url(url)
+      @challenge.obtain_bitly_url(challenge_url(@challenge))
       current_user.tweet(@challenge.issue)
       redirect_to user_challenges_path(current_user)
     else
+      @user = User.new(username: params[:user][:username])
+      @errors = @challenge.errors.full_messages
+      @challenges_created = current_user.challenges_created
+      @challenges_received = current_user.challenges_received
       render "index"
     end
   end
@@ -55,6 +54,10 @@ class ChallengesController < ApplicationController
   private
 
   def challenge_params
+    params[:challenge][:challenger_id] = current_user.id
+    params[:challenge][:status_id] = 1
+    challengee = User.find_or_create_by(username: params[:user][:username])
+    params[:challenge][:challengee_id] = challengee.id
     params.required(:challenge).permit(:title, :terms, :reward, :end_date, :challenger_id, :challengee_id, :status_id)
   end
 end

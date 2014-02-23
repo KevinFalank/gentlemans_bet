@@ -5,7 +5,7 @@ feature 'User creating and viewing a challenge' do
   let(:user) {User.create(username: "Charlie")}
   let(:status) {Status.create(condition: "Pending")}
   let(:challenge){Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin", challenger_id: user.id, 
-                  challengee_id: user.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")}
+                  challengee_id: user.id, status_id: status.id, end_date: Time.now.midnight, reward: "A brilliant wizard's hat")}
 
   before(:each) do
     ApplicationController.any_instance.stub(:current_user).and_return(user)
@@ -25,11 +25,22 @@ feature 'User creating and viewing a challenge' do
 
      expect {
        fill_in 'challenge_title',   with: "Hello world!"
+       fill_in 'user_username',   with: "Whomever"
        fill_in 'challenge_terms', with: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
        fill_in 'challenge_reward', with: "Blah Blah"
-       fill_in 'challenge_end_date', with: "2014-02-21"
+       fill_in 'challenge_end_date', with: "2099-02-21"
        click_button "Send Challenge"
      }.to change(Challenge, :count).by(1)
+    end
+
+    it "displays errors when the form is not filled-out completely" do
+      user.stub(:tweet).and_return("whatever")
+      visit user_challenges_url(user)
+      fill_in 'user_username',   with: "Whomever"
+      fill_in 'challenge_reward', with: "Blah Blah"
+      fill_in 'challenge_end_date', with: "2099-02-21"
+      click_button "Send Challenge"
+      expect(page).to have_content("can't be blank")
     end
 
     it "lists the user's challenges on the user#index" do
@@ -58,7 +69,7 @@ feature 'User creating and viewing a challenge' do
     it "does not show the buttons if it is not the challengee" do
       user2 = User.create(username: "John")
       challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin",
-                      challenger_id: user.id, challengee_id: user2.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")
+                      challenger_id: user.id, challengee_id: user2.id, status_id: status.id, end_date: Time.now.midnight, reward: "A brilliant wizard's hat")
       visit challenge_url(challenge)
       expect(page).to have_no_selector("form")
     end
@@ -66,7 +77,7 @@ feature 'User creating and viewing a challenge' do
     it "shows the concede button if the challenge has been accepted" do
       status = Status.create(condition: "Accepted")
       challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin",
-                      challenger_id: user.id, challengee_id: user.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")
+                      challenger_id: user.id, challengee_id: user.id, status_id: status.id, end_date: Time.now.midnight, reward: "A brilliant wizard's hat")
       visit challenge_url(challenge)
       expect(page).to have_selector(:link_or_button, 'Concede')
     end
