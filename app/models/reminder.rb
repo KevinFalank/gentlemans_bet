@@ -14,7 +14,7 @@ class Reminder
   end
 
   def self.remind 
-    # puts "test"
+    puts "test"
     Reminder.recipients.each do |user_id|
       user = User.find(user_id)
       tweet_at = "@#{user.username}"

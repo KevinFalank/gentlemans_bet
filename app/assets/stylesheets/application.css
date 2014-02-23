@@ -11,3 +11,54 @@
  *= require_self
  *= require_tree .
  */
+
+
+
+body{
+	background-image: url('stripe.png');
+}
+
+#gentleman{
+	background-color: #330044;
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 5%;
+	margin-bottom: 2%;
+	border: 10px solid gray;
+	border-radius: 50%;
+}
+
+img {
+	padding-left: 50px;
+}
+
+#description{
+	background-color: black;
+	border: 3px solid gray;
+	border-radius: 5px;
+	font-family: 'Julius Sans One', sans-serif;
+	color: gray;
+	width: 60%;
+	padding: 3%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+#sign_in{
+	background-color: #330044;
+	color: gray;
+	font-family: 'Julius Sans One', sans-serif;
+	padding: 3%;
+	border: none;
+	border-radius: 50%;
+	width: 20%;
+	margin-left: 40%;
+	margin-top: 2%;
+}
+
+#sign_in:hover{
+	border: 3px solid gray;
+	color: white;
+	background-color: #664488;
+}
