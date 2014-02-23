@@ -32,7 +32,8 @@ describe ChallengesController, :type => :controller do
       user = User.create(username: "Charlie")
       user.stub(:tweet).and_return("whatever")
       ApplicationController.any_instance.stub(:current_user).and_return(user)
-      expect{post :create, user_id: user.id, challenge: {'title' => 'Test Challenge', 'terms' => '@blahblah'}, user:{'username' => 'charlie'}}.to change(Challenge, :count).by(1)
+      expect{post :create, user_id: user.id, challenge: {'title' => 'Test Challenge', 'terms' => '@blahblah', 'end_date' => Time.now.midnight, 'reward' => 'whatever', 
+          'challengee_id' => 1}, user:{'username' => 'charlie'}}.to change(Challenge, :count).by(1)
     end
   end
 
@@ -40,7 +41,8 @@ describe ChallengesController, :type => :controller do
     it "the user is taken to a specific challenge's page" do
       user = User.create(username: "Charlie")
       session[:user_id] = user.id
-      challenge = Challenge.create(title: "Test")
+      challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin", challenger_id: user.id, 
+                  challengee_id: user.id, end_date: Time.now.midnight, reward: "A brilliant wizard's hat")
       get :show, id: challenge.id
       expect(response.status).to eq(200)
     end
@@ -51,7 +53,8 @@ describe ChallengesController, :type => :controller do
       user = User.create(username: "Charlie")
       user2 = User.create(username: "John")
       ApplicationController.any_instance.stub(:current_user).and_return(user)
-      challenge = Challenge.create(title: "test", status_id: 1, challengee_id: user2.id, challenger_id: user.id)
+      challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin", challenger_id: user.id, 
+                  challengee_id: user2.id, status_id: 1, end_date: Time.now.midnight, reward: "A brilliant wizard's hat")
       put :update, id: challenge.id, status_id: 2
       expect(Challenge.find(challenge.id).status_id).to eq(2)
     end
