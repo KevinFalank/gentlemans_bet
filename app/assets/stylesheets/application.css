@@ -27,6 +27,18 @@ nav{
 #navbar li{
 	float: right;
 	display: inline;
+	padding-right: 60px;
+	padding-top: 20px;
+}
+#logo{
+	background-color: black;
+	width: 20%;
+	border: solid 10px #330044;
+	border-radius: 50%;
+	padding: 2%;
+	position: absolute;
+	left: -50px;
+	top: -30px;
 }
 
 

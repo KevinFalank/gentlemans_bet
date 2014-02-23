@@ -10,7 +10,11 @@
 </head>
 <body>
   <% if session[:user_id] %>
+
   <nav>
+    <div id="logo">
+      <%= image_tag("gentleman.svg", width: "50%") %>
+    </div>
     <ul id="navbar">
       <li>
         <%= link_to "Sign Out", sign_out_path, method: :delete %>
