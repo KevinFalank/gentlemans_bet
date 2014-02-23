@@ -100,8 +100,6 @@ ul{
 	margin-top: 3%;
 	margin-bottom: 10%;
 	padding: 2%;
-	border: 1px solid white;
-	border-radius: 7px;
 }
 input, textarea{
 	color: gray;
@@ -110,12 +108,10 @@ table{
 	color: gray;
 	font-size: 14px;
 	border-radius: 7px;
+	border: 1px solid gray;
 	background-color: #330044;
 	margin: 0 auto;
-	padding: 2%;
-}
-tr{
-	margin: 3%;
+	padding: 4%;
 }
 td{
 	margin: 3%;
@@ -124,7 +120,7 @@ td{
 	font-size: 12px;
 	text-shadow: none;
 	padding: 1%;
-	border-radius: 7px;
+	border-radius: 10px;
 }
 
 a{
