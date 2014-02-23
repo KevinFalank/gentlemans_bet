@@ -73,13 +73,13 @@ color: #666666;
     transition:         opacity 1s 5s,         transform 0.5s 4.5s;
 }
 
-a {
+/*a {
   float: right;
   text-decoration: none;
   margin: 0;
   color: #206BA4;
-}
+}*/
 
-a:hover {
+/*a:hover {
   color: #BBD9EE;
-}
+}*/

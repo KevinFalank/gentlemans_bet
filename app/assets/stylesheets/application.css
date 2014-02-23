@@ -76,10 +76,12 @@ img {
 #create{
 	font-family: 'Julius Sans One', sans-serif;
 	background-image: url('paper.png');
-	border-radius: 3px;
+	border-radius: 10px;
 	width: 30%;
 	margin: 0 auto;
+	margin-top: 10%;
 	padding: 2%;
+	border: 7px solid #664488;
 }
 
 ul{
@@ -87,7 +89,7 @@ ul{
 }
 
 #challenges{
-	background-color: gray;
+	background-image: url('stripe.png');
 	width: 55%;
 	font-family: 'Julius Sans One', sans-serif;
 	font-size: 25px;
@@ -96,13 +98,16 @@ ul{
 	text-shadow: 0px 5px 5px #664488;
 	margin: 0 auto;
 	margin-top: 3%;
-	padding: 1%;
-	border: 3px solid white;
+	margin-bottom: 10%;
+	padding: 2%;
+	border: 1px solid white;
 	border-radius: 7px;
 }
-
+input, textarea{
+	color: gray;
+}
 table{
-	color: white;
+	color: gray;
 	font-size: 14px;
 	border-radius: 7px;
 	background-color: #330044;
@@ -122,11 +127,20 @@ td{
 	border-radius: 7px;
 }
 
+a{
+	color: white;
+	text-shadow: 0px 5px 5px #664488;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+	color: black;
+}
+
 #button_style2{
 	background-color: #330044;
 	color: gray;
-	
-
 	padding: 3%;
 	border: none;
 	border-radius: 50%;
