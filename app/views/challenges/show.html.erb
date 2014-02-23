@@ -8,15 +8,18 @@
 		<% if @challenge.winner %>
 		  <h5>Winner: <%=@challenge.winner.username%></h5>
 		<% end %>
-		<h5>Terms:</h5>
+		<h5>Terms</h5>
 		<h5><%=@challenge.terms%></h5>
 	</div>
-	<% if @current_user.id == @challenge.challengee_id && @challenge.status_id == 1%>
-	  <%= button_to 'Sir (or Lady), I do declare that I shall meet those terms.', {:controller => "challenges", :action => "update", :status_id => 2}, :method=>:put  %>
-	  <%= button_to 'Your wager is beneath me.', {:controller => "challenges", :action => "update", :status_id => 3}, :method=>:put  %>
-	<% elsif @current_user.id == @challenge.challenger_id && @challenge.status_id == 2 && @challenge.winner_id.nil? || @current_user.id == @challenge.challengee_id && @challenge.status_id == 2 && @challenge.winner_id.nil?%>
-	  <%= button_to 'Concede', {:controller => "challenges", :action => "update", :concede => "Y"}, :method=>:put  %>
-	<% elsif @current_user.id %>
-	  <%=link_to "Issue a Challenge", user_challenges_path(@current_user)%>
-	<% end %>
+
+	<div id="options">
+		<% if @current_user.id == @challenge.challengee_id && @challenge.status_id == 1%>
+		  <%= button_to 'Sir (or Lady), I do declare that I shall meet those terms.', {:controller => "challenges", :action => "update", :status_id => 2}, :method=>:put  %>
+		  <%= button_to 'Your wager is beneath me.', {:controller => "challenges", :action => "update", :status_id => 3}, :method=>:put  %>
+		<% elsif @current_user.id == @challenge.challenger_id && @challenge.status_id == 2 && @challenge.winner_id.nil? || @current_user.id == @challenge.challengee_id && @challenge.status_id == 2 && @challenge.winner_id.nil?%>
+		  <%= button_to 'Concede', {:controller => "challenges", :action => "update", :concede => "Y"}, :method=>:put  %>
+		<% elsif @current_user.id %>
+		  <%=link_to "Issue a Challenge", user_challenges_path(@current_user)%>
+		<% end %>
+	</div>
 </div>

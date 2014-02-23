@@ -29,6 +29,11 @@ nav{
 	display: inline;
 	padding-right: 60px;
 	padding-top: 20px;
+	font-family: 'Julius Sans One', sans-serif;
+}
+#navbar li a:hover{
+	color: #664488;
+	-webkit-text-stroke: 1px white;
 }
 #logo{
 	background-color: black;
@@ -130,6 +135,7 @@ ul{
 	margin: 0 auto;
 	margin-top: 3%;
 	margin-bottom: 10%;
+	width: 100%;
 }
 input, textarea{
 	color: gray;
@@ -193,7 +199,7 @@ a:hover{
 	background-color: #330044;
 	color: white;
 	margin: 0 auto;
-	margin-bottom: 10%;
+	margin-bottom: 2%;
 	text-align: center;
 	font-family: 'Julius Sans One', sans-serif;
 	padding: 3%;
@@ -213,7 +219,31 @@ h5{
 	font-size: 15px;
 	line-height: 5%;
 }
+#options{
+	width: 20%;
+	margin: 0 auto;
+	margin-bottom: 10%;
+	text-align: center;
+}
+button{
+	background-color: #330044;
+	color: gray;
+	
 
+	padding: 3%;
+	border: none;
+	border-radius: 50%;
+	width: 20%;
+	margin-left: 40%;
+	margin-top: 2%;
+}
+
+button:hover{
+	border: 3px solid gray;
+	color: white;
+	background-color: #664488;
+	text-shadow: 0px 5px 5px black;
+}
 
 
 
