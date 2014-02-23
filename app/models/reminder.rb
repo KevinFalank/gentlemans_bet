@@ -17,5 +17,4 @@ class Reminder
         challenge!  #{challenge.bitly_url} #gm_bet")
     end
   end
-
 end
