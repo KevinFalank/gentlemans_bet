@@ -20,7 +20,10 @@ class Reminder
     #by id...key in hash is the challenge id)
     #tweeted @ the users' twitter handle (search for user by id...
     #user id's are the value in the hash)
-    Reminder.recipients.each do |user|
+    Reminder.recipients.each do |user_id|
+      user = User.find_by(user_id)
+      tweet_at = "@#{user.username}"
+
       tweet = Twitter::REST::Client.new do |config|
         config.consumer_key = ENV['TWITTER_KEY']
         config.consumer_secret = ENV['TWITTER_SECRET']
@@ -28,7 +31,7 @@ class Reminder
         config.oauth_token_secret = ENV['OAUTH_SECRET']
       end
 
-      tweet.update(message)
+      tweet.update("#{tweet_at}, you have an unresolved challenge that expires tomorrow! Concede or both parties shall be shamed!")
     end
   end
 
