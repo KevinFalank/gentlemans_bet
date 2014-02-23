@@ -1,26 +1,27 @@
 require 'spec_helper'
 
-feature 'User creating a challenge' do
+feature 'User creating and viewing a challenge' do
 
   let(:user) {User.create(username: "Charlie")}
   let(:status) {Status.create(condition: "Pending")}
+  let(:challenge){Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin", challenger_id: user.id, 
+                  challengee_id: user.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")}
 
   before(:each) do
+    ApplicationController.any_instance.stub(:current_user).and_return(user)
     page.set_rack_session(:user_id => user.id)
   end
 
   context "on user_challenges#index" do
     it "sees a form for creating a challenge" do
       user.stub(:tweet).and_return("whatever")
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
       visit user_challenges_url(user)
       expect(page).to have_selector("form")
     end
 
     it "can create a new challenge" do
       user.stub(:tweet).and_return("whatever")
-     ApplicationController.any_instance.stub(:current_user).and_return(user)
-     visit user_challenges_url(user)
+      visit user_challenges_url(user)
 
      expect {
        fill_in 'challenge_title',   with: "Hello world!"
@@ -32,45 +33,24 @@ feature 'User creating a challenge' do
     end
 
     it "lists the user's challenges on the user#index" do
-      challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin",
-                       challenger_id: user.id, challengee_id: user.id, status_id: status.id, end_date: "01-01-2016")
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
+      challenge
       visit user_challenges_url(user)
       expect(page).to have_content("A manly bet")
     end
   end
-end
-
-feature 'User accepting a challenge' do
-
-  let(:user) {User.create(username: "Charlie")}
-  let(:status) {Status.create(condition: "Pending")}
-
-  before(:each) do
-    page.set_rack_session(:user_id => user.id)
-  end
 
   context "on challenges#show" do
     it "sees the terms of a challenge" do
-      challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin",
-                      challenger_id: user.id, challengee_id: user.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
       visit challenge_url(challenge)
       expect(page).to have_content("He who wins shall get to wear a big great grin")
     end
 
     it "can accept the challenge" do
-      challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin",
-                      challenger_id: user.id, challengee_id: user.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
       visit challenge_url(challenge)
       expect(page).to have_selector(:link_or_button, 'Sir (or Lady), I do declare that I shall meet those terms.')
     end
 
     it "can reject the challenge" do
-      challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin",
-                      challenger_id: user.id, challengee_id: user.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
       visit challenge_url(challenge)
       expect(page).to have_selector(:link_or_button, 'Your wager is beneath me.')
     end
@@ -79,10 +59,16 @@ feature 'User accepting a challenge' do
       user2 = User.create(username: "John")
       challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin",
                       challenger_id: user.id, challengee_id: user2.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
       visit challenge_url(challenge)
       expect(page).to have_no_selector("form")
     end
-  end
 
+    it "shows the concede button if the challenge has been accepted" do
+      status = Status.create(condition: "Accepted")
+      challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin",
+                      challenger_id: user.id, challengee_id: user.id, status_id: status.id, end_date: "01-01-2016", reward: "A brilliant wizard's hat")
+      visit challenge_url(challenge)
+      expect(page).to have_selector(:link_or_button, 'Concede')
+    end
+  end
 end
