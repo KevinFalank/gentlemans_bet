@@ -13,10 +13,10 @@
 	</div>
 	<div id="options">
 		<% if @current_user.id == @challenge.challengee_id && @challenge.status.condition == "Pending"%>
-		  <%= button_to 'Sir (or Lady), I do declare that I shall meet those terms.', {:controller => "challenges", :action => "update", :status_id => 2}, :method=>:put  %>
-		  <%= button_to 'Your wager is beneath me.', {:controller => "challenges", :action => "update", :status_id => 3}, :method=>:put  %>
+		  <%= button_to 'Sir (or Lady), I do declare that I shall meet those terms.', {:controller => "challenges", :action => "update", :status_id => 2}, :method=>:put, class: "button_style3"%>
+		  <%= button_to 'Your wager is beneath me.', {:controller => "challenges", :action => "update", :status_id => 3}, :method=>:put, class: "button_style3"%>
 		<% elsif @current_user.id == @challenge.challenger_id && @challenge.status.condition == "Accepted" && @challenge.winner_id.nil? || @current_user.id == @challenge.challengee_id && @challenge.status.condition == "Accepted" && @challenge.winner_id.nil?%>
-		  <%= button_to 'Concede', {:controller => "challenges", :action => "update", :concede => "Y"}, :method=>:put  %>
+		  <%= button_to 'Concede', {:controller => "challenges", :action => "update", :concede => "Y"}, :method=>:put,class: "button_style3"  %>
 		<% elsif @current_user.id %>
 		  <%=link_to "Issue a Challenge", user_challenges_path(@current_user)%>
 		<% end %>
