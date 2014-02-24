@@ -20,8 +20,7 @@ development:
   database: gentlemans_bet_development
   pool: 5
   host: localhost
-  username: 'charlie'
-  password: 'dbc2014'
+
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
@@ -49,8 +48,6 @@ test:
   database: gentlemans_bet_test
   pool: 5
   host: localhost
-  username: 'charlie'
-  password: 'dbc2014'
   
   
 
