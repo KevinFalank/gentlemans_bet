@@ -146,8 +146,8 @@ ul{
 input, textarea{
 	color: gray;
 	padding: 1%;
-	font-family: 'Julius Sans One', sans-serif;
 	padding-right: 2%;
+	width: 40%;
 }
 table{
 	color: gray;
