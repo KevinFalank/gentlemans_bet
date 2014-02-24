@@ -63,7 +63,7 @@ body{
 	border-radius: 50%;
 }
 
-img {
+#gentleman img {
 	padding-left: 50px;
 }
 
@@ -83,21 +83,17 @@ img {
 #button_style{
 	background-color: #330044;
 	color: gray;
-	
-
+	margin: 0 auto;
+	margin-top: 3%;
 	padding: 3%;
-	border: none;
+	border: 10px solid gray;
 	border-radius: 50%;
 	width: 20%;
-	margin-left: 40%;
-	margin-top: 2%;
+	text-align: center;
 }
 
-#button_style:hover{
-	border: 3px solid gray;
-	color: white;
-	background-color: #664488;
-	text-shadow: 0px 5px 5px black;
+#twitter_button:hover{
+	box-shadow: 0px 0px 5px #fff;
 }
 
 

@@ -4,8 +4,8 @@
 	</div>
 	<div id="description">
 		This is the description of our site... Blah, blah, blah
-	</div id="button">
-	<%= form_tag("/login", method: "get") do%>
-	<%= submit_tag "Sign in with Twitter", :id => "button_style" %>
-	<% end %>
+	</div>
+  <div id="button_style">
+	 <%= link_to image_tag("twitter-sign-in.png", id: "twitter_button"), "/login"%>
+  </div>
 </div>
