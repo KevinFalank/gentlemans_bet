@@ -23,6 +23,7 @@ class Challenge < ActiveRecord::Base
 
   def update_winner(user)
     self.challenger == user ? self.winner_id = self.challengee.id : self.winner_id = self.challenger.id
+    self.status_id = 4
     self.save
   end
 
@@ -32,6 +33,10 @@ class Challenge < ActiveRecord::Base
 
   def concede
     "@"+self.winner.username + ", Fine, I concede you are the greatest in the universe. " + self.title + ":" + self.bitly_url + " #gmbet"
+  end
+
+  def response
+    "@"+self.challenger.username + ", your challenge has been " + self.status.condition + ".  " + self.bitly_url + " #gmbet"
   end
 
   private

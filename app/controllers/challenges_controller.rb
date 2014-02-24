@@ -43,6 +43,7 @@ class ChallengesController < ApplicationController
     if params[:status_id] 
       challenge.status_id = params[:status_id]
       challenge.save
+      current_user.tweet(challenge.response)
       redirect_to user_challenges_path(current_user)
     else
       challenge.update_winner(current_user)
