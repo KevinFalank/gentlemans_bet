@@ -49,7 +49,6 @@ test:
   pool: 5
   host: localhost
   
-  
 
 production:
   adapter: postgresql
