@@ -1,8 +1,7 @@
-/*body {
+#impress {
 font-family: 'Roboto Condensed', sans-serif;
-background: white;
-color: #666666;
-}*/
+color: #faebd7;
+}
 
 .step {
     position: relative;
@@ -80,6 +79,6 @@ color: #666666;
   color: #206BA4;
 }*/
 
-/*a:hover {
-  color: #BBD9EE;
-}*/
+#the-first-step a:hover {
+  color: #968d81;
+}
