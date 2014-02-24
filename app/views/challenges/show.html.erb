@@ -2,7 +2,7 @@
 	<div id="display">
 		<h3><%=@challenge.title.capitalize%></h3>
 		<h5>Reward: <%=@challenge.reward%></h5>
-		<h5>End Date: <%=@challenge.end_date%></h5>
+		<h5>End Date: <%=date_display(@challenge.end_date)%></h5>
 		<h4><%=@challenge.challenger.username%> vs <%=@challenge.challengee.username%></h4>
 		<h5>Status: <%=@challenge.status.condition%></h5>
 		<% if @challenge.winner %>

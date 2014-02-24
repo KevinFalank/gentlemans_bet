@@ -56,7 +56,7 @@ class ChallengesController < ApplicationController
   def challenge_params
     params[:challenge][:challenger_id] = current_user.id
     params[:challenge][:status_id] = 1
-    challengee = User.find_or_create_by(username: params[:user][:username])
+    challengee = User.find_or_create_by(username: params[:user][:username].downcase)
     params[:challenge][:challengee_id] = challengee.id
     params.required(:challenge).permit(:title, :terms, :reward, :end_date, :challenger_id, :challengee_id, :status_id)
   end

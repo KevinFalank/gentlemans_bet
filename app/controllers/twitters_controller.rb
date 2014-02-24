@@ -10,7 +10,7 @@ class TwittersController < ApplicationController
 	def auth
 	  @access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
 	  session.delete(:request_token)
-  	user = User.find_or_create_by(username: @access_token.params[:screen_name])
+  	user = User.find_or_create_by(username: @access_token.params[:screen_name].downcase)
   	user.access_token = @access_token.token
   	user.access_secret = @access_token.secret
 		user.save
