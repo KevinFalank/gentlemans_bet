@@ -74,9 +74,19 @@ body{
 	font-family: 'Julius Sans One', sans-serif;
 	color: gray;
 	width: 60%;
-	padding: 3%;
 	margin: 0 auto;
 	text-align: center;
+}
+
+#description h2{
+	font-size: 75px;
+	margin: 0;
+}
+
+#description h3{
+	font-size: 30px;
+	margin: 0;
+	font-family: sans-serif;
 }
 
 
@@ -88,7 +98,7 @@ body{
 	padding: 3%;
 	border: 10px solid gray;
 	border-radius: 50%;
-	width: 20%;
+	width: 15%;
 	text-align: center;
 }
 
