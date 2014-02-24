@@ -1,4 +1,13 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GentlemansBet</title>
+  <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "site" %>
+  <%= javascript_include_tag "navbars/impress" %>
+  <%= csrf_meta_tags %>
+</head>
 <body class="impress-not-supported">
 <div id="impress">
     <div id="the-gentlemans-bet" class="step slide" data-x="-6500" data-y="-1500" data-scale="2">
@@ -21,18 +30,18 @@
     <div id="the-honor" class="step slide" data-x="-6000" data-y="1325">
         The gentleman's bet has no need for proof that one party's side of the bet has been fulfilled; he or she is taken at their word.
     </div>
-    <div id="the-outcome" class="step slide" data-x="-1500" data-y="1325" data-scale="4">Or is there?
+    <div id="the-outcome" class="step slide" data-x="-1500" data-y="1700" data-scale="4">Or is there?
     </div>
-    <div id="the-solution" class="step slide" data-x="1200" data-y="1325" data-scale="2" data-rotate="90">Enter the new and improved Gentleman's Bet. It's as simple as:
+    <div id="the-solution" class="step slide" data-x="1500" data-y="1700" data-scale="2" data-rotate="90">Enter the new and improved Gentleman's Bet. It's as simple as:
     </div>
-    <div id="the-start" class="step slide" data-x="3500" data-y="1750" data-scale="3">
+    <div id="the-start" class="step slide" data-x="3500" data-y="3800" data-scale="3">
       <ul>
       <li>Challenge a party via the Gentleman's Bet Twitter contract.</li>
       <li>The challengee accepts the bet (or cowers and denies it).</li>
       <li>When the bet has come to fruition honor and victor will belong to the winner and only public shame to the loser. But ... </li>
       </ul>
     </div>
-    <div id="the-first-step" class="step slide" data-x="-1000" data-y="4025" data-z="-3000" data-rotate="300">
+    <div id="the-first-step" class="step slide" data-x="-1000" data-y="5275" data-z="-3000" data-rotate="300">
      A winner will only be announced if one party concedes. Else both parties are shamed for there can only be one Gentleman victor.
      <br><br><%= link_to "ready to make a wager?", root_path%>
     </div>
@@ -47,6 +56,6 @@ if ("ontouchstart" in document.documentElement) {
     document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
 }
 </script>
-<script src="assets/impress.js?body=1"></script>
 <script>impress().init();</script>
 </body>
+</html>
