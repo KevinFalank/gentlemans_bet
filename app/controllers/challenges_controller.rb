@@ -43,6 +43,7 @@ class ChallengesController < ApplicationController
     if params[:status_id] 
       challenge.status_id = params[:status_id]
       challenge.save
+      current_user.tweet(challenge.response)
       redirect_to user_challenges_path(current_user)
     else
       challenge.update_winner(current_user)
@@ -56,7 +57,7 @@ class ChallengesController < ApplicationController
   def challenge_params
     params[:challenge][:challenger_id] = current_user.id
     params[:challenge][:status_id] = 1
-    challengee = User.find_or_create_by(username: params[:user][:username])
+    challengee = User.find_or_create_by(username: params[:user][:username].downcase)
     params[:challenge][:challengee_id] = challengee.id
     params.required(:challenge).permit(:title, :terms, :reward, :end_date, :challenger_id, :challengee_id, :status_id)
   end

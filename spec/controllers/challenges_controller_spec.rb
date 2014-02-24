@@ -51,10 +51,13 @@ describe ChallengesController, :type => :controller do
   describe "#update" do
     it "the challengee's response is recorded in the challenge" do
       user = User.create(username: "Charlie")
+      user.stub(:tweet).and_return("whatever")
       user2 = User.create(username: "John")
+      status = Status.create(condition: "Whatever")
+      Challenge.any_instance.stub(:status).and_return(status)
       ApplicationController.any_instance.stub(:current_user).and_return(user)
       challenge = Challenge.create(title: "A manly bet", terms: "He who wins shall get to wear a big great grin", challenger_id: user.id, 
-                  challengee_id: user2.id, status_id: 1, end_date: Time.now.midnight, reward: "A brilliant wizard's hat")
+                  challengee_id: user2.id, status_id: 1, end_date: Time.now.midnight, reward: "A brilliant wizard's hat", bitly_url: "whatever")
       put :update, id: challenge.id, status_id: 2
       expect(Challenge.find(challenge.id).status_id).to eq(2)
     end

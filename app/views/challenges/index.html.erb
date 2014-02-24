@@ -19,6 +19,8 @@
     </li>
     <li>
       <%= f.label :end_date, "End Date"%>
+    </li>
+    <li>
       <%= f.date_field :end_date %>
     </li>
     <li><%= f.submit "Send Challenge", id: "button_style2" %></li>
@@ -36,14 +38,14 @@
     <table>
      <tr><th>Challenge Title</th><th>End Date</th><th>Challengee</th><th>Status</th><th>Winner</th></tr>
     <% @challenges_created.each do |challenge| %>
-        <tr><td><%=link_to challenge.title, challenge_path(challenge)%></td><td><%=challenge.end_date%></td><td><%=challenge.challengee.username%></td><td><%=challenge.status.condition%></td><td><%=challenge.winner.username unless challenge.winner.nil?%></td></tr>
+        <tr><td><%=link_to challenge.title, challenge_path(challenge)%></td><td><%=date_display(challenge.end_date)%></td><td><%=challenge.challengee.username%></td><td><%=challenge.status.condition%></td><td><%=challenge.winner.username unless challenge.winner.nil?%></td></tr>
       <% end %>
     </table>
     <h3>Challenges Received</h3>
     <table>
       <tr><th>Challenge Title</th><th>End Date</th><th>Challenger</th><th>Status</th><th>Winner</th></tr>
       <% @challenges_received.each do |challenge| %>
-        <tr><td><%=link_to challenge.title, challenge_path(challenge)%></td><td><%=challenge.end_date%></td><td><%=challenge.challenger.username%></td><td><%=challenge.status.condition%></td><td><%=challenge.winner.username unless challenge.winner.nil?%></td></tr>
+        <tr><td><%=link_to challenge.title, challenge_path(challenge)%></td><td><%=date_display(challenge.end_date)%></td><td><%=challenge.challenger.username%></td><td><%=challenge.status.condition%></td><td><%=challenge.winner.username unless challenge.winner.nil?%></td></tr>
       <% end %>
     </table>
   </div>
